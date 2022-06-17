@@ -1,0 +1,46 @@
+name: Deploy all of the things
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: self-hosted
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      
+      
+      # - name: Install Pulumi CLI
+      #   uses: pulumi/action-install-pulumi-cli@v1.0.2
+      #   continue-on-error: true
+      #   with:
+      #     pulumi-version: 3.14.0
+
+      - name: Setup AZ CLI
+        run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+      - run: npm install
+
+      - uses: pulumi/actions@v3
+        with:
+          command: up
+          stack-name: live
+          comment-on-pr: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+          PULUMI_CONFIG_PASSPHRASE: ${{ secrets.PULUMI_CONFIG_PASSPHRASE }}
+          KUBECONFIG: /etc/config/config
+          ARM_CLIENT_ID: 38f5fb75-424a-4586-bef5-5e73911a7b3e
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          ARM_TENANT_ID: 0f8497c6-6f52-4bad-85d4-6155372dba18
+          ARM_SUBSCRIPTION_ID: 630a763f-84eb-445a-95a6-1d1146bbecba
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+   

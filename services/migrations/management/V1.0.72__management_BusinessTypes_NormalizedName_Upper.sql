@@ -1,0 +1,1 @@
+UPDATE "Management"."BusinessType" SET "NormalizedName" = upper("Name");

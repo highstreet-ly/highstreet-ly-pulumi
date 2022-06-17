@@ -1,0 +1,79 @@
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: highstreetly-work
+  name: postgres-nodeport-5432
+  labels:
+    app.kubernetes.io/instance: sonatribe-pgsql-postgresql
+    app.kubernetes.io/name: postgresql
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    nodePort: 30002
+    port: 5432
+  selector:
+    app.kubernetes.io/instance: sonatribe-pgsql-postgresql
+    app.kubernetes.io/name: postgresql
+    role: master
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: highstreetly-work
+  name: rmq-nodeport-5672
+  labels:
+    app.kubernetes.io/instance: sonatribe-rabbitmq
+    app.kubernetes.io/name: rabbitmq
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    nodePort: 30000
+    port: 5672
+  selector:
+    app.kubernetes.io/instance: sonatribe-rabbitmq
+    app.kubernetes.io/name: rabbitmq
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: highstreetly-work
+  name: rmq-nodeport-15672
+  labels:
+    app.kubernetes.io/instance: sonatribe-rabbitmq
+    app.kubernetes.io/name: rabbitmq
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    nodePort: 30001
+    port: 15672
+  selector:
+    app.kubernetes.io/instance: sonatribe-rabbitmq
+    app.kubernetes.io/name: rabbitmq
+
+---
+apiVersion: v1
+data:
+  fastcgi-buffer-size: 32k
+  fastcgi-buffers: 16 16k
+  hsts: "false"
+  large-client-header-buffers: 8 32k
+  map-hash-bucket-size: "128"
+  proxy-buffer-size: 256k
+  proxy-buffering: "on"
+  proxy-buffers: 4 256k
+  proxy-busy-buffers-size: 256k
+  proxy-read-timeout: '3600'
+  proxy-send-timeout: '3600'
+kind: ConfigMap
+metadata:
+  labels:
+    addonmanager.kubernetes.io/mode: EnsureExists
+  name: ingress-nginx-controller
+  namespace: ingress-nginx

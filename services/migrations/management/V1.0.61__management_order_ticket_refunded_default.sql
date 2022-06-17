@@ -1,0 +1,1 @@
+ALTER TABLE "Management"."OrderTicket" ALTER COLUMN "Refunded" SET DEFAULT 'f';

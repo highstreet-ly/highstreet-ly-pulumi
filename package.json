@@ -1,0 +1,12 @@
+{
+    "name": "highstreet.ly-init-cluster",
+    "version": "3.0.84",
+    "main": "index.js",
+    "dependencies": {
+        "@pulumi/azure": "^4.13.0",
+        "@pulumi/azuread": "^4.3.0",
+        "@pulumi/cloudflare": "^3.5.0",
+        "@pulumi/kubernetes": "^3.8.0",
+        "@pulumi/pulumi": "^3.14.0"
+    }
+}

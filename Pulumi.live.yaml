@@ -1,0 +1,70 @@
+encryptionsalt: 
+config:
+  azure-native:clientId:
+  azure-native:clientSecret:
+    secure: 
+  azure-native:subscriptionId: 
+  azure-native:tenantId: 
+
+  # namespace
+  sonaticket:domainTld: ly
+  sonaticket:namespace: highstreet-ly
+  sonaticket:aRecord: highstreet
+  sonaticket:ownsNginxConfig: "true"
+
+  # switches
+  sonaticket:clearDownIds: "false"
+  sonaticket:inClusterDb: "false"
+  sonaticket:inClusterQueue: "false"
+
+  # cert manager
+  sonaticket:issuer: cf-prod-highstreet-ly
+  sonaticket:certManagerNamespace: cert-manager
+
+  # ports
+  sonaticket:operatorPort:
+  sonaticket:ordersUiPort: ""
+  sonaticket:dashboardPort: ""
+  sonaticket:mainUiPort: ""
+  sonaticket:ticketsUiPort: ""
+
+  # image versions
+  sonaticket:sonaticket-backend-payments-version: v2.0.619
+  sonaticket:sonaticket-backend-ids-version: v2.0.619
+  sonaticket:sonaticket-backend-scheduler-version: v2.0.100
+  sonaticket:sonaticket-backend-management-version: v2.0.619
+  sonaticket:sonaticket-backend-reservations-version: v2.0.619
+  sonaticket:sonaticket-backend-permissions-version: v2.0.619
+  sonaticket:sonaticket-backend-bff-version: v2.0.619
+  sonaticket:sonaticket-backend-signalr-version: v2.0.619
+  sonaticket:sonaticket-dash-version: v2.0.227
+  sonaticket:sonaticket-operator-version: v0.0.73
+  sonaticket:sonaticket-shop-version: v2.0.37
+  sonaticket:sonaticket-ui-version: v2.0.24
+  sonaticket:sonaticket-hs-feeds-version: v1.0.1
+
+  # the rest
+  sonaticket:aspNetCoreEnvironment: "Release"
+  sonaticket:defaultApiReplica: 1
+  sonaticket:dockerImagePrepend: sonatribe
+  sonaticket:postgres: 192.168.1.170
+  sonaticket:postgresApplicationPass: Sonatribe2020
+  sonaticket:postgresApplicationUser: postgres
+  sonaticket:postgresSystemPass: Sonatribe2020
+  sonaticket:postgresSystemUser: postgres
+  sonaticket:serverIp: 87.252.62.197  
+  sonaticket:stripeApiKey: 
+  sonaticket:stripeWhSecret:   
+  sonaticket:imagePullPolicy: "Always"
+  sonaticket:idsSecret: ""
+  sonaticket:platformFeesPence: 0
+  sonaticket:rmqConnection: "rabbitmq://192.168.1.158/highstreet-ly"
+  sonaticket:uiImagePostpend: -live
+  sonaticket:dashUI: https://dashboard.highstreet.ly
+  sonaticket:chargeBeeApiKey: ""
+  sonaticket:chargeBeeSite: "highstreetly"
+  sonaticket:twilioAccountSid: ""
+  sonaticket:twilioAuthToken: ""
+  sonaticket:sendGridKey: 
+  sonaticket:slackToken:
+  sonaticket:slackEnabled: true

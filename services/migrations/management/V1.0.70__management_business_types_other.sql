@@ -1,0 +1,1 @@
+INSERT INTO "Management"."BusinessType" ("Name", "NormalizedName") VALUES ('Other', 'OTHER');

@@ -1,0 +1,2 @@
+ALTER TABLE "Management"."Order" 
+ALTER COLUMN "Status" TYPE VARCHAR;

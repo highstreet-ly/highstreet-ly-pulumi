@@ -1,0 +1,14 @@
+*/**/node_modules/
+debug.log
+debug.log
+.bashrc.copy
+hosts.copy
+*/**/.pulumi
+*/**.vagrant
+ansible/vagrant/*.vdi
+ansible/vagrant/.vagrant
+ansible/*.log
+/node_modules/
+ansible/group_vars/all/all.yml
+ansible/ansible-logs.log
+ansible/ansible-logs.log

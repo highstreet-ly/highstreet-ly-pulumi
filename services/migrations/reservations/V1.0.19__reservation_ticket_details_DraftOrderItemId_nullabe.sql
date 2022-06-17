@@ -1,0 +1,1 @@
+ALTER TABLE "Reservation"."OrderTicketDetails" ALTER COLUMN "DraftOrderItemId" DROP NOT NULL;

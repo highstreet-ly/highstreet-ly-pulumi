@@ -1,0 +1,1 @@
+alter TABLE  "Management"."Order" ADD COLUMN "OrderAdvisoryTimeOfDay" text NULL;

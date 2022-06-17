@@ -1,0 +1,2 @@
+INSERT INTO "Management"."BusinessTypeFeatureTemplates"  ("BusinessTypeId")
+SELECT "Id" FROM  "Management"."BusinessType" where "Id" not in (select "BusinessTypeId" from "Management"."BusinessTypeFeatureTemplates");
